@@ -9,10 +9,10 @@ These types of resources are supported:
 
 ## Usage
 
-Create a 
 ```hcl
 module "example" {
   source               = "terraform-alicloud-modules/ess-clb/alicloud"
+  create_scaling_group = true
   min_size             = 1
   max_size             = 4
   desired_capacity     = 2
@@ -20,7 +20,8 @@ module "example" {
   scaling_group_name   = "your_name"
   vswitch_ids          = ["vswitch_ids"]
   spot_instance_remedy = false
-
+  
+  create_slb_balancer            = true
   load_balancer_name             = "your_load_balancer_name"
   load_balancer_spec             = "your_load_balancer_spec"
   address_ip_version             = "ipv4"
@@ -29,7 +30,8 @@ module "example" {
   address_type                   = "internet"
   modification_protection_status = "NonProtection"
   internet_charge_type           = "PayByTraffic"
-
+  
+  create_slb_listener   = true
   backend_port          = 22
   frontend_port         = 2
   protocol              = "tcp"
