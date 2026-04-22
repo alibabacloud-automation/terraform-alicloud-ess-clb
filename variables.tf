@@ -71,12 +71,6 @@ variable "db_instance_ids" {
   default     = []
 }
 
-variable "loadbalancer_ids" {
-  type        = list(string)
-  description = "If a Server Load Balancer instance is specified in the scaling group, the scaling group automatically attaches its ECS instances to the Server Load Balancer instance."
-  default     = []
-}
-
 variable "multi_az_policy" {
   type        = string
   description = "Multi-AZ scaling group ECS instance expansion and contraction strategy. PRIORITY, BALANCE or COST_OPTIMIZED(Available in 1.54.0+)."
@@ -205,12 +199,6 @@ variable "slave_zone_id" {
   default     = null
 }
 
-# alicloud_slb_listener
-variable "load_balancer_id" {
-  type        = string
-  description = "The Load Balancer ID which is used to launch a new listener."
-  default     = null
-}
 variable "description" {
   type        = string
   description = "The description of slb listener. This description can have a string of 1 to 80 characters. Default value: null."

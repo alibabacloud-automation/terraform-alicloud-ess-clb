@@ -14,18 +14,6 @@ variable "scaling_group_name" {
   default     = "scaling_group_name"
 }
 
-variable "frontend_port" {
-  type        = number
-  description = "Port used by the Server Load Balancer instance frontend. Valid value range: [1-65535]."
-  default     = null
-}
-
-variable "protocol" {
-  type        = string
-  description = "The protocol to listen on. Valid values are [http, https, tcp, udp]."
-  default     = "tcp"
-}
-
 variable "bandwidth" {
   type        = number
   description = "Valid value is between 1 and 1000, If argument internet_charge_type is PayByTraffic, then this value will be ignore."
@@ -56,12 +44,6 @@ variable "default_cooldown" {
   type        = number
   description = "Default cool-down time (in seconds) of the scaling group. Value range: [0, 86400]. The default value is 300s."
   default     = 20
-}
-
-variable "desired_capacity" {
-  type        = number
-  description = "Expected number of ECS instances in the scaling group. Value range: [min_size, max_size]."
-  default     = 2
 }
 
 variable "removal_policies" {

@@ -1,5 +1,5 @@
 locals {
-  balancer_id = var.balancer_id != "" ? var.balancer_id : concat(alicloud_slb_load_balancer.balancer.*.id, [""])[0]
+  balancer_id = var.balancer_id != "" ? var.balancer_id : concat(alicloud_slb_load_balancer.balancer[*].id, [""])[0]
 }
 
 resource "alicloud_ess_scaling_group" "scaling_group" {
